@@ -1,3 +1,7 @@
+#Orig
+*.orig
+*.swp
+
 # Prerequisites
 *.d
 
