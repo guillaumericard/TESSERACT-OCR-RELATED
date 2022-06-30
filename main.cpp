@@ -23,13 +23,16 @@ int main(int argc, char ** argv) {
   }
 
   Pix *image;
+  cout << "------" << endl;
   for(int i=0; i<t.taille(); i++) {
+    cout << "\nIMAGE :\n" << t[i] << endl;
     // Open input image with leptonica library
     image = pixRead(t[i]);
     api->SetImage(image);
     // Get OCR result
     outText = api->GetUTF8Text();
-    cout << "OCR ouput:\n" << outText <<endl;
+    cout << "\nOCR ouput:\n" << outText <<endl;
+    cout << "------" << endl;
   }
   // Destroy used object and release memory
   api->End();
