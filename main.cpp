@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(int argc, char ** argv) {
-  Tableau<const char *> t;
+  Tableau<string> t;
   if(argc < 2) {
     cout << "Aucune image passée en argument!" << endl;
     return 1;
@@ -27,7 +27,7 @@ int main(int argc, char ** argv) {
   for(int i=0; i<t.taille(); i++) {
     cout << "\nIMAGE :\n" << t[i] << endl;
     // Open input image with leptonica library
-    image = pixRead(t[i]);
+    image = pixRead(t[i].c_str()); // c_str() => from string to const char*
     api->SetImage(image);
     // Get OCR result
     outText = api->GetUTF8Text();
